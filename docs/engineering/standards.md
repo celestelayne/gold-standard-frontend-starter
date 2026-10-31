@@ -32,6 +32,20 @@ These standards apply equally to human engineers and AI coding agents.
 
 These are architectural choices, not requirements to use every library in every feature.
 
+## Interface Quality
+
+User-facing changes must satisfy applicable interface-quality requirements:
+
+1. Meet WCAG 2.2 AA accessibility expectations, including text contrast of at least 4.5:1 for normal text, 3:1 for large text, and 3:1 for applicable non-text UI indicators.
+2. Ensure interactive elements are keyboard accessible and have visible focus indicators.
+3. Aim for touch targets of at least 44×44 CSS pixels; document justified exceptions.
+4. Respect `prefers-reduced-motion`. Use established motion tokens rather than arbitrary durations and easing.
+5. Design intentional empty, loading, success, and error states where applicable.
+6. Support layouts down to 320 CSS pixels without unintended horizontal scrolling. Allow deliberate overflow for content that requires it.
+7. Never use color as the only means of communicating information.
+
+Automated accessibility checks supplement, but do not replace, keyboard testing and visual inspection.
+
 ## Code Organization
 
 Follow ADR-001.

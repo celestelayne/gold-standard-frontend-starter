@@ -97,6 +97,7 @@ Rules:
 - Keep global styles in `src/styles/global.css`.
 - Use semantic HTML and accessible interaction patterns.
 - Preserve keyboard navigation and visible focus states.
+- Meet the requirements in `docs/engineering/standards.md` under "Interface Quality".
 - Do not invent visual design decisions when an approved design or reference exists.
 - Ask for clarification when significant visual or interaction behavior is unspecified.
 
@@ -270,18 +271,14 @@ After implementation, provide verifiable evidence of correctness.
 
 ## Learning From Repeated Corrections
 
-When the same type of agent error occurs repeatedly:
+When the same correction comes up twice in review, add a dated rule below after maintainer approval, using:
 
-1. Identify the recurring failure and its impact.
-2. Determine whether the cause is missing instructions, unclear architecture, insufficient tests, or ambiguous requirements.
-3. Propose the smallest durable correction.
-4. Present the proposed change and supporting examples for human approval.
-5. Update the appropriate authoritative document after approval.
+```
+YYYY-MM-DD — rule
+```
 
-Record proposed improvements in `docs/engineering/agent-learnings.md`.
+Only add rules supported by repeated, observed problems. Avoid turning one-off preferences into permanent architecture constraints. The guardrails above describe established project decisions. This section is where new rules earn their place.
 
-Do not automatically add permanent rules to `AGENTS.md`.
+### Rules
 
-Prefer automated enforcement when a recurring problem can be detected through linting, type checking, architecture checks, or tests.
-
-Review learned rules periodically and remove obsolete or redundant guidance.
+_None yet._
