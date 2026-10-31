@@ -1,0 +1,8 @@
+# Ignore artifacts:
+build
+coverage
+
+dist
+coverage
+playwright-report
+test-results
