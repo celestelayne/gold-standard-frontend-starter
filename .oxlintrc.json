@@ -4,5 +4,50 @@
   "rules": {
     "react/rules-of-hooks": "error",
     "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["src/shared/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": [
+                  "**/features/**",
+                  "**/app/**",
+                  "**/mocks/**",
+                  "**/test/**"
+                ],
+                "message": "shared/ must not import from features/, app/, mocks/, or test/ (ADR-001)."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["src/features/**"],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "patterns": [
+              {
+                "group": ["**/app/**", "**/mocks/**", "**/test/**"],
+                "message": "features/ must not import from app/, mocks/, or test/ (ADR-001)."
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["**/*.test.ts", "**/*.test.tsx"],
+      "rules": {
+        "no-restricted-imports": "off"
+      }
+    }
+  ]
 }
