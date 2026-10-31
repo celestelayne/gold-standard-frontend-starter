@@ -101,3 +101,19 @@ When verification fails:
 ## Validation
 
 The verification protocol will be exercised against the Todo reference application and a fresh project generated from the template.
+
+### Verification Requirements
+
+Before declaring a task complete:
+
+1. Run the applicable lint, typecheck, formatting, build, and test commands. Report actual results.
+2. For user-facing changes, inspect the application at representative mobile and desktop viewport widths.
+3. Verify relevant keyboard interactions, focus indicators, and accessible names.
+4. Check every acceptance criterion in the approved specification and report how it was verified.
+5. Test applicable edge cases, including empty data, invalid inputs, failed requests, and missing optional data.
+6. Run relevant regression tests to ensure existing behavior remains intact.
+7. Report any verification steps that could not be performed and explain why.
+
+Do not claim visual inspection, manual testing, or automated verification was completed unless it actually occurred.
+
+A successful build is not sufficient evidence of correct behavior.

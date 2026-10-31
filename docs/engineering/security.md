@@ -61,3 +61,13 @@ Explicit review is required when changes affect authentication, authorization, d
 Security controls will be reviewed during CI setup and template validation.
 
 Controls not yet implemented must remain identified as planned rather than complete.
+
+## Never
+
+- Do not read or expose secrets
+- Edit or weaken a test solely to make it pass.
+- Add a library without asking
+- Implement future slices before approval.
+- Change another slice's behavior without identifying the impact and obtaining approval for approved refactoring
+- Introduce a global state library for state that React can manage locally.
+- Claim that unrun tests or manual checks passed.
