@@ -58,13 +58,13 @@ If a command fails, read the error before attempting to fix it. Some checks may 
 
 Before writing code, read these documents in order:
 
-| Document | What you'll learn |
-|---|---|
-| `README.md` | What the project does and how to run it |
-| `docs/architecture.md` | How the application is organized |
-| `docs/engineering/standards.md` | How code should be written |
-| `docs/engineering/testing.md` | How behavior should be tested |
-| `AGENTS.md` | Instructions that coding agents must follow |
+| Document                        | What you'll learn                           |
+| ------------------------------- | ------------------------------------------- |
+| `README.md`                     | What the project does and how to run it     |
+| `docs/architecture.md`          | How the application is organized            |
+| `docs/engineering/standards.md` | How code should be written                  |
+| `docs/engineering/testing.md`   | How behavior should be tested               |
+| `AGENTS.md`                     | Instructions that coding agents must follow |
 
 You don't need to memorize everything. You should know where to find the information when you need it.
 
@@ -96,7 +96,9 @@ These questions help you understand the problem before implementing a solution.
 Feature request: Users should be able to assign a priority level to a Todo so they can distinguish important tasks from less urgent ones.
 
 #### 1. What should the user be able to do?
+
 **Expected behavior:**
+
 - When creating a Todo, the user can select Low, Medium, or High priority.
 - Medium is selected by default.
 - After saving, the Todo displays its assigned priority.
@@ -107,11 +109,15 @@ Feature request: Users should be able to assign a priority level to a Todo so th
 A user creates a Todo titled "Pay electricity bill," selects High priority, and saves it.
 
 The Todo list displays:
+
 ```
 Pay electricity bill — High Priority
 ```
+
 #### 2. What should happen when the input is invalid?
+
 **Expected behavior:**
+
 - Priority must be one of low, medium, or high.
 - An unsupported value, such as urgent, is rejected by validation.
 - The form displays an understandable error if an invalid value is encountered.
@@ -122,11 +128,15 @@ Pay electricity bill — High Priority
 The API returns an error when saving a Todo.
 
 The user sees:
+
 ```
 "Couldn't save your Todo. Please try again."
 ```
+
 Their title and selected priority remain unchanged.
+
 #### 3. Which existing modules will be affected?
+
 Following the repository's feature-oriented architecture:
 
 ```
@@ -148,32 +158,34 @@ src/
     └── handlers.ts
 ```
 
-| Module | Required change |
-|---|---|
-| `todo.schema.ts` | Define allowed priority values and default |
-| `todoApi.ts` | Include priority in create/update contracts |
-| `TodoForm.tsx` | Add priority selection |
-| `TodoItem.tsx` | Display selected priority |
-| `todo-priority.test.tsx` | Verify user-visible behavior |
-| `mocks/handlers.ts` | Accept, persist, and return priority in mocked responses |
+| Module                   | Required change                                          |
+| ------------------------ | -------------------------------------------------------- |
+| `todo.schema.ts`         | Define allowed priority values and default               |
+| `todoApi.ts`             | Include priority in create/update contracts              |
+| `TodoForm.tsx`           | Add priority selection                                   |
+| `TodoItem.tsx`           | Display selected priority                                |
+| `todo-priority.test.tsx` | Verify user-visible behavior                             |
+| `mocks/handlers.ts`      | Accept, persist, and return priority in mocked responses |
 
 These are proposed locations. Check the existing repository before creating files.
 
 **Architectural consideration:** Priority is part of the Todo's domain data, not shared UI state. It belongs in the Todo model and server-state flow, not a Zustand store.
 
 #### 4. How will you prove the feature works?
+
 Define acceptance tests before implementing the feature.
 
-| Test | Expected result |
-|---|---|
-| Open Create Todo form | Medium is selected by default |
-| Select High and save | Todo appears with High priority |
-| Edit Todo and select Low | Updated Todo displays Low priority |
-| Submit unsupported priority | Verification rejects the value |
-| API returns an error | Error message appears and input is preserved |
-| Load an older Todo without priority | Medium is displayed |
+| Test                                | Expected result                              |
+| ----------------------------------- | -------------------------------------------- |
+| Open Create Todo form               | Medium is selected by default                |
+| Select High and save                | Todo appears with High priority              |
+| Edit Todo and select Low            | Updated Todo displays Low priority           |
+| Submit unsupported priority         | Verification rejects the value               |
+| API returns an error                | Error message appears and input is preserved |
+| Load an older Todo without priority | Medium is displayed                          |
 
 **Example test using React Testing Library:**
+
 ```
 it('creates a high-priority todo', async () => {
   const user = userEvent.setup();
@@ -203,6 +215,7 @@ it('creates a high-priority todo', async () => {
   ).toBeInTheDocument();
 });
 ```
+
 This is an illustrative test. It assumes TodoApp exposes the form and TestProviders configures TanStack Query and MSW.
 
 The test should initially fail because the priority feature does not exist.
@@ -306,13 +319,13 @@ If you cannot explain a change, don't submit it yet.
 
 Different types of state have different owners.
 
-| If you're managing… | Use… |
-|---|---|
-| Data returned by an API | TanStack Query |
-| Shared interface state | Zustand |
+| If you're managing…        | Use…                  |
+| -------------------------- | --------------------- |
+| Data returned by an API    | TanStack Query        |
+| Shared interface state     | Zustand               |
 | Form inputs and validation | React Hook Form + Zod |
-| Temporary component state | React `useState` |
-| Shared dependencies | React Context |
+| Temporary component state  | React `useState`      |
+| Shared dependencies        | React Context         |
 
 For example, Todo data fetched from an API belongs in TanStack Query. The currently selected Todo filter can belong in Zustand.
 

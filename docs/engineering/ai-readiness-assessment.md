@@ -22,19 +22,19 @@ Each capability is evaluated using four statuses:
 
 ## Baseline Assessment
 
-| Capability | Initial status | Required evidence |
-|---|---|---|
-| Reproducible toolchain | Implemented, pending validation | Pinned versions, lockfile, clean installation |
-| Engineering standards | Planned | Documented rules and automated checks |
-| Architecture | Planned | ADRs and implemented module boundaries |
-| Agent instructions | Not started | `AGENTS.md` and fresh-session evaluation |
-| Specification workflow | Not started | OpenSpec change lifecycle |
-| API independence | Planned | HTTP client and MSW integration |
-| Automated testing | Not started | Unit, integration, and E2E tests |
-| Verification contract | Planned | Executable checks and agent reports |
-| Visual verification | Not started | Browser screenshots and review |
-| Security controls | Planned | CI, dependency controls, permission boundaries |
-| Template reproducibility | Not started | Successful fresh-clone validation |
+| Capability               | Initial status                  | Required evidence                              |
+| ------------------------ | ------------------------------- | ---------------------------------------------- |
+| Reproducible toolchain   | Implemented, pending validation | Pinned versions, lockfile, clean installation  |
+| Engineering standards    | Planned                         | Documented rules and automated checks          |
+| Architecture             | Planned                         | ADRs and implemented module boundaries         |
+| Agent instructions       | Not started                     | `AGENTS.md` and fresh-session evaluation       |
+| Specification workflow   | Not started                     | OpenSpec change lifecycle                      |
+| API independence         | Planned                         | HTTP client and MSW integration                |
+| Automated testing        | Not started                     | Unit, integration, and E2E tests               |
+| Verification contract    | Planned                         | Executable checks and agent reports            |
+| Visual verification      | Not started                     | Browser screenshots and review                 |
+| Security controls        | Planned                         | CI, dependency controls, permission boundaries |
+| Template reproducibility | Not started                     | Successful fresh-clone validation              |
 
 Statuses must be updated against actual repository evidence.
 

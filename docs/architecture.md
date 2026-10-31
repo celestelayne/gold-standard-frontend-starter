@@ -59,14 +59,14 @@ The `todos` feature is illustrative and will be introduced during reference appl
 
 ### Module Responsibilities
 
-| Module | Responsibility |
-|---|---|
-| `app/` | Application composition, global providers, initialization |
-| `features/` | Domain-specific behavior, components, hooks, and state |
-| `shared/api/` | HTTP transport and dependency injection |
-| `shared/ui/` | Reusable, domain-independent UI components |
-| `shared/lib/` | Domain-independent utilities |
-| `styles/` | Global styles and design tokens |
+| Module        | Responsibility                                            |
+| ------------- | --------------------------------------------------------- |
+| `app/`        | Application composition, global providers, initialization |
+| `features/`   | Domain-specific behavior, components, hooks, and state    |
+| `shared/api/` | HTTP transport and dependency injection                   |
+| `shared/ui/`  | Reusable, domain-independent UI components                |
+| `shared/lib/` | Domain-independent utilities                              |
+| `styles/`     | Global styles and design tokens                           |
 
 ### Dependency Rules
 
@@ -82,13 +82,13 @@ These rules will eventually be enforced through automated architecture checks.
 
 State ownership is determined by the nature of the data.
 
-| State category | Technology | Examples |
-|---|---|---|
-| Server state | TanStack Query | Todos, API responses, mutations |
-| Shared UI state | Zustand | Filters, selections, dialogs |
-| Form state | React Hook Form + Zod | Form values and validation |
-| Local component state | React `useState` | Temporary UI interactions |
-| Dependency injection | React Context | API client and application providers |
+| State category        | Technology            | Examples                             |
+| --------------------- | --------------------- | ------------------------------------ |
+| Server state          | TanStack Query        | Todos, API responses, mutations      |
+| Shared UI state       | Zustand               | Filters, selections, dialogs         |
+| Form state            | React Hook Form + Zod | Form values and validation           |
+| Local component state | React `useState`      | Temporary UI interactions            |
+| Dependency injection  | React Context         | API client and application providers |
 
 ### Rules
 
@@ -128,13 +128,13 @@ API contracts and external response validation will be defined as features are i
 
 Testing is organized around observable behavior.
 
-| Layer | Technology | Purpose |
-|---|---|---|
-| Unit | Vitest | Pure functions and domain logic |
-| Component/integration | React Testing Library + MSW | User interactions and API behavior |
-| Browser E2E | Playwright | Complete browser workflows |
-| Accessibility | jest-axe + manual review | Detectable accessibility issues and keyboard behavior |
-| Visual verification | Playwright screenshots + review | Responsive layouts and visual regressions |
+| Layer                 | Technology                      | Purpose                                               |
+| --------------------- | ------------------------------- | ----------------------------------------------------- |
+| Unit                  | Vitest                          | Pure functions and domain logic                       |
+| Component/integration | React Testing Library + MSW     | User interactions and API behavior                    |
+| Browser E2E           | Playwright                      | Complete browser workflows                            |
+| Accessibility         | jest-axe + manual review        | Detectable accessibility issues and keyboard behavior |
+| Visual verification   | Playwright screenshots + review | Responsive layouts and visual regressions             |
 
 Test-first development is preferred for well-defined behavior.
 

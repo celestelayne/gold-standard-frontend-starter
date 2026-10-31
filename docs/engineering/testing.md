@@ -22,13 +22,13 @@ Tests should answer:
 
 ## Test Levels
 
-| Level | Tools | Scope |
-|---|---|---|
-| Unit | Vitest | Pure functions, transformations, domain rules |
-| Component/integration | Vitest, React Testing Library, MSW | User interactions, forms, data fetching |
-| Browser E2E | Playwright | Critical workflows in a real browser |
-| Accessibility | jest-axe, manual testing | Detectable violations and keyboard behavior |
-| Visual | Playwright screenshots | Layout and visual regression checks |
+| Level                 | Tools                              | Scope                                         |
+| --------------------- | ---------------------------------- | --------------------------------------------- |
+| Unit                  | Vitest                             | Pure functions, transformations, domain rules |
+| Component/integration | Vitest, React Testing Library, MSW | User interactions, forms, data fetching       |
+| Browser E2E           | Playwright                         | Critical workflows in a real browser          |
+| Accessibility         | jest-axe, manual testing           | Detectable violations and keyboard behavior   |
+| Visual                | Playwright screenshots             | Layout and visual regression checks           |
 
 ## Test-First Development
 

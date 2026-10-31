@@ -18,13 +18,13 @@ The template needs a consistent approach to state ownership.
 
 Assign state-management responsibilities according to the type of state being managed.
 
-| State category | Technology | Responsibility |
-|---|---|---|
-| Server state | TanStack Query | Fetching, caching, synchronization, mutations |
-| Shared UI state | Zustand | Filters, selections, dialog state |
-| Form state | React Hook Form + Zod | Form values, validation, submission |
-| Local state | React `useState` | Isolated, transient interactions |
-| Dependencies | React Context | Provider composition and dependency injection |
+| State category  | Technology            | Responsibility                                |
+| --------------- | --------------------- | --------------------------------------------- |
+| Server state    | TanStack Query        | Fetching, caching, synchronization, mutations |
+| Shared UI state | Zustand               | Filters, selections, dialog state             |
+| Form state      | React Hook Form + Zod | Form values, validation, submission           |
+| Local state     | React `useState`      | Isolated, transient interactions              |
+| Dependencies    | React Context         | Provider composition and dependency injection |
 
 ### Rules
 

@@ -8,18 +8,18 @@ The template establishes a consistent engineering foundation through explicit ar
 
 ## Tech Stack
 
-| Category | Technology |
-|---|---|
-| Framework | React, TypeScript, Vite |
-| Package management | pnpm |
-| Code quality | Oxlint, Prettier |
-| Server state | TanStack Query |
-| Client state | Zustand |
-| Forms | React Hook Form, Zod |
-| API mocking | Mock Service Worker (MSW) |
-| Testing | Vitest, React Testing Library, Playwright |
-| Styling | CSS Modules, CSS custom properties |
-| AI workflow | Claude Code, OpenSpec |
+| Category           | Technology                                |
+| ------------------ | ----------------------------------------- |
+| Framework          | React, TypeScript, Vite                   |
+| Package management | pnpm                                      |
+| Code quality       | Oxlint, Prettier                          |
+| Server state       | TanStack Query                            |
+| Client state       | Zustand                                   |
+| Forms              | React Hook Form, Zod                      |
+| API mocking        | Mock Service Worker (MSW)                 |
+| Testing            | Vitest, React Testing Library, Playwright |
+| Styling            | CSS Modules, CSS custom properties        |
+| AI workflow        | Claude Code, OpenSpec                     |
 
 Some technologies are planned and will be introduced incrementally.
 
