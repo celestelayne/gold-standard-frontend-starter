@@ -16,12 +16,20 @@ if (!apiBaseUrl) {
 
 const apiClient = createFetchApiClient({ baseUrl: apiBaseUrl });
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <QueryProvider>
-      <ApiClientProvider client={apiClient}>
-        <App />
-      </ApiClientProvider>
-    </QueryProvider>
-  </StrictMode>,
-);
+async function enableMocking() {
+  if (import.meta.env.VITE_API_MODE !== 'mock') return;
+  const { worker } = await import('./mocks/browser.ts');
+  await worker.start();
+}
+
+enableMocking().then(() => {
+  createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+      <QueryProvider>
+        <ApiClientProvider client={apiClient}>
+          <App />
+        </ApiClientProvider>
+      </QueryProvider>
+    </StrictMode>,
+  );
+});
